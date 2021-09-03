@@ -1,12 +1,12 @@
 {
-  "name": "react_ujs",
+  "name": "react_ujs_multicontext",
   "version": "2.6.1",
-  "description": "Rails UJS for the react-rails gem",
+  "description": "Rails UJS for the react-rails gem with useContexts",
   "main": "react_ujs/index.js",
   "files": [
     "react_ujs"
   ],
-  "repository": "reactjs/react-rails",
+  "repository": "cymen/react-rails",
   "scripts": {
     "build": "cd react_ujs && webpack"
   },
