@@ -5,6 +5,7 @@ var ReactDOMServer = require("react-dom/server")
 var detectEvents = require("./src/events/detect")
 var constructorFromGlobal = require("./src/getConstructor/fromGlobal")
 var constructorFromRequireContextWithGlobalFallback = require("./src/getConstructor/fromRequireContextWithGlobalFallback")
+var constructorFromRequireContextsWithGlobalFallback = require("./src/getConstructor/fromRequireContextsWithGlobalFallback")
 
 var ReactRailsUJS = {
   // This attribute holds the name of component which should be mounted
@@ -70,6 +71,13 @@ var ReactRailsUJS = {
   // then falling back to global lookup.
   useContext: function(requireContext) {
     this.getConstructor = constructorFromRequireContextWithGlobalFallback(requireContext)
+  },
+
+  // Given an array of Webpack `require.context`,
+  // try finding components with `require`,
+  // then falling back to global lookup.
+  useContexts: function(requireContexts) {
+    this.getConstructor = constructorFromRequireContextsWithGlobalFallback(requireContexts)
   },
 
   // Render `componentName` with `props` to a string,
